@@ -32,4 +32,15 @@ var priceLabels = coffees.reduce((acc, coffee) => {
     return acc.concat(labels);
 }, []);
 
+
 log(priceLabels());
+var greetings = [{
+    origin: 'english',
+    value: 'hello'
+}, {
+    origin: 'spanish',
+    value: 'hola'
+}, {
+    origin: 'hindi',
+    value: 'namaste'
+}];
