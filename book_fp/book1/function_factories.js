@@ -30,11 +30,12 @@ log(cubeOf(5));
 
 function curry(fn) {
     var totalArgsLen = fn.length;
+    //log('fn length', totalArgsLen);
 
     function subCurry(...args) {
         return function(newArg) {
             var seenArgs = args.concat(newArg);
-            // log('seen args' , seenArgs);
+            // log('seen args', seenArgs);
             if (seenArgs.length === totalArgsLen) {
                 return fn.apply(null, seenArgs);
             } else {
@@ -44,6 +45,14 @@ function curry(fn) {
     }
     return subCurry();
 }
+
+var product = function(x, y, z) {
+    return x * y * z;
+};
+
+Function.prototype.curry = function() { // can't use arrow functions, "this" will be current scope
+    return curry(this)
+};
 
 var sum = (a, b, c) => a + b + c;
 
@@ -55,3 +64,6 @@ var add1And4 = add1(4);
 log(add1And4(5));
 
 
+var curriedProduct = product.curry();
+
+log(curriedProduct(2)(4)(6));
