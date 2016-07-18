@@ -8,5 +8,8 @@
     "one": "node c1.js"
   },
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "lodash": "^4.13.1"
+  }
 }
